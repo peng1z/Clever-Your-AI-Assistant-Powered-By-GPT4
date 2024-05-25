@@ -11,6 +11,10 @@
 		B890F2E32C024C450046A0C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890F2E22C024C450046A0C0 /* ContentView.swift */; };
 		B890F2E52C024C470046A0C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B890F2E42C024C470046A0C0 /* Assets.xcassets */; };
 		B890F2E92C024C470046A0C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B890F2E82C024C470046A0C0 /* Preview Assets.xcassets */; };
+		B890F2F12C0251AF0046A0C0 /* SiriWaveView in Frameworks */ = {isa = PBXBuildFile; productRef = B890F2F02C0251AF0046A0C0 /* SiriWaveView */; };
+		B890F2F42C0251E00046A0C0 /* XCAOpenAIClient in Frameworks */ = {isa = PBXBuildFile; productRef = B890F2F32C0251E00046A0C0 /* XCAOpenAIClient */; };
+		B890F2F62C02539F0046A0C0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890F2F52C02539F0046A0C0 /* Models.swift */; };
+		B890F2F82C0254370046A0C0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890F2F72C0254370046A0C0 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,8 @@
 		B890F2E42C024C470046A0C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B890F2E62C024C470046A0C0 /* Clever.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clever.entitlements; sourceTree = "<group>"; };
 		B890F2E82C024C470046A0C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B890F2F52C02539F0046A0C0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		B890F2F72C0254370046A0C0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B890F2F42C0251E00046A0C0 /* XCAOpenAIClient in Frameworks */,
+				B890F2F12C0251AF0046A0C0 /* SiriWaveView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +65,8 @@
 				B890F2E42C024C470046A0C0 /* Assets.xcassets */,
 				B890F2E62C024C470046A0C0 /* Clever.entitlements */,
 				B890F2E72C024C470046A0C0 /* Preview Content */,
+				B890F2F52C02539F0046A0C0 /* Models.swift */,
+				B890F2F72C0254370046A0C0 /* ViewModel.swift */,
 			);
 			path = Clever;
 			sourceTree = "<group>";
@@ -85,6 +95,10 @@
 			dependencies = (
 			);
 			name = Clever;
+			packageProductDependencies = (
+				B890F2F02C0251AF0046A0C0 /* SiriWaveView */,
+				B890F2F32C0251E00046A0C0 /* XCAOpenAIClient */,
+			);
 			productName = Clever;
 			productReference = B890F2DD2C024C450046A0C0 /* Clever.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +127,10 @@
 				Base,
 			);
 			mainGroup = B890F2D42C024C450046A0C0;
+			packageReferences = (
+				B890F2EF2C0251AF0046A0C0 /* XCRemoteSwiftPackageReference "SiriWaveView" */,
+				B890F2F22C0251E00046A0C0 /* XCRemoteSwiftPackageReference "XCAOpenAIClient" */,
+			);
 			productRefGroup = B890F2DE2C024C450046A0C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +157,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B890F2F62C02539F0046A0C0 /* Models.swift in Sources */,
 				B890F2E32C024C450046A0C0 /* ContentView.swift in Sources */,
+				B890F2F82C0254370046A0C0 /* ViewModel.swift in Sources */,
 				B890F2E12C024C450046A0C0 /* CleverApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +294,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Talk with AI Assistant";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -282,20 +303,22 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pengzhang.Clever;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
 		};
@@ -312,6 +335,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Talk with AI Assistant";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -320,20 +344,22 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pengzhang.Clever;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
 		};
@@ -359,6 +385,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B890F2EF2C0251AF0046A0C0 /* XCRemoteSwiftPackageReference "SiriWaveView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/SiriWaveView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B890F2F22C0251E00046A0C0 /* XCRemoteSwiftPackageReference "XCAOpenAIClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/XCAOpenAIClient";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B890F2F02C0251AF0046A0C0 /* SiriWaveView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B890F2EF2C0251AF0046A0C0 /* XCRemoteSwiftPackageReference "SiriWaveView" */;
+			productName = SiriWaveView;
+		};
+		B890F2F32C0251E00046A0C0 /* XCAOpenAIClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B890F2F22C0251E00046A0C0 /* XCRemoteSwiftPackageReference "XCAOpenAIClient" */;
+			productName = XCAOpenAIClient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B890F2D52C024C450046A0C0 /* Project object */;
 }
