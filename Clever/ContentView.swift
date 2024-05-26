@@ -39,7 +39,7 @@ struct ContentView: View {
                     Text($0.rawValue).id($0)
                 }
             }
-            .pickerStyle(.segmented)
+            .pickerStyle(.automatic)
             .disabled(!vm.isIdle)
             
             if case let .error(error) = vm.state{
@@ -71,7 +71,7 @@ struct ContentView: View {
         Button {
             vm.startCaptureAudio()
         } label: {
-            Image(systemName: "mic.circle")
+            Image(systemName: "waveform.badge.mic")
                 .symbolRenderingMode(.multicolor)
                 .font(.system(size: 128))
         }.buttonStyle(.borderless)
@@ -81,7 +81,7 @@ struct ContentView: View {
         Button(role: .destructive) {
             vm.cancelRecording()
         } label: {
-            Image(systemName: "xmark.circle.fill")
+            Image(systemName: "xmark.circle")
                 .symbolRenderingMode(.multicolor)
                 .font(.system(size: 44))
         }.buttonStyle(.borderless)
@@ -91,7 +91,7 @@ struct ContentView: View {
         Button(role: .destructive) {
             vm.cancelProcessingTask()
         } label: {
-            Image(systemName: "stop.circle.fill")
+            Image(systemName: "stop.circle")
                 .symbolRenderingMode(.monochrome)
                 .foregroundColor(.red)
                 .font(.system(size: 44))
